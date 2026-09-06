@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sol Luna Spark Router"
+  short_description: "Route standalone Codex work with local TrackWave plans"
+  default_prompt: "Use $sol-luna-spark-router to plan and execute this task in standalone Codex, reusing the supplied local TrackWave plan or creating one when useful."

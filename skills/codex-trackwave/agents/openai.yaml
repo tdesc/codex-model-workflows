@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex TrackWave"
+  short_description: "Local wave plans and resumable work for standalone Codex"
+  default_prompt: "Use $codex-trackwave to plan or resume this work locally, and use Sol Luna Spark Router for model assignments when useful."

@@ -1,0 +1,18 @@
+{
+  "name": "codex-model-workflows",
+  "version": "0.1.0",
+  "description": "Standalone local TrackWave plans and adaptive Sol, Luna, and Spark orchestration for Codex.",
+  "author": {
+    "name": "Valentin Kalinin"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Codex Model Workflows",
+    "shortDescription": "Plan local waves and route model work in Codex.",
+    "longDescription": "Durable local plans, dependency checks, attempt history, and model routing. Requires only Codex and Python 3.10 or newer; no server or external orchestration service.",
+    "developerName": "Valentin Kalinin",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Use codex-trackwave to plan this work and sol-luna-spark-router to execute ready items with appropriate models."
+  }
+}

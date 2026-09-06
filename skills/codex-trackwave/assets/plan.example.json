@@ -1,0 +1,42 @@
+{
+  "format": "codex-trackwave/v1",
+  "id": "example-parser-change",
+  "goal": "Implement the agreed parser behavior and verify its callers",
+  "source": "Record the actual repository/base or document revision here",
+  "authorization": "Record the user's authorized work and effects here",
+  "deadline": "Record the task deadline or finite execution envelope here",
+  "limits": {"max_parallel": 2, "max_attempts": 2},
+  "waves": ["implementation", "integration"],
+  "items": [
+    {
+      "id": "parser",
+      "wave": "implementation",
+      "title": "Implement the specified parser change",
+      "depends_on": [],
+      "read_set": ["src/parser.py"],
+      "write_set": ["src/parser.py"],
+      "route": "Luna",
+      "acceptance": "All declared inputs satisfy the agreed parser contract"
+    },
+    {
+      "id": "test-design",
+      "wave": "implementation",
+      "title": "Design edge-case tests from the supplied contract snapshot",
+      "depends_on": [],
+      "read_set": ["docs/parser-contract.md"],
+      "write_set": ["tests/test_parser_contract.py"],
+      "route": "Spark",
+      "acceptance": "Tests cover declared input abstractions and error cases"
+    },
+    {
+      "id": "join",
+      "wave": "integration",
+      "title": "Review and validate the combined change against callers",
+      "depends_on": ["parser", "test-design"],
+      "read_set": ["src/", "tests/"],
+      "write_set": [],
+      "route": "Sol",
+      "acceptance": "Inspect full contract coverage and run focused caller tests"
+    }
+  ]
+}
