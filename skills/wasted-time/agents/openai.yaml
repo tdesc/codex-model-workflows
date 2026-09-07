@@ -1,0 +1,4 @@
+interface:
+  display_name: "Wasted Time"
+  short_description: "Stop low-information work before it scales"
+  default_prompt: "Use $wasted-time to define a bounded stop contract, run the smallest useful canary, and decide whether to scale, repair, or stop."

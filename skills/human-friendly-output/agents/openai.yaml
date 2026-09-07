@@ -1,0 +1,4 @@
+interface:
+  display_name: "Human-Friendly Output"
+  short_description: "Explain engineering results clearly and honestly"
+  default_prompt: "Use $human-friendly-output to lead with the observable outcome, separate observed facts from inference and unknowns, and state the next decision clearly."
