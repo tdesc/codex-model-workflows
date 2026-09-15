@@ -1,11 +1,12 @@
 # Codex Model Workflows
 
-Four portable skills for standalone Codex:
+Five portable skills for standalone Codex:
 
 - `codex-trackwave` creates and resumes local wave plans, checks dependencies, and records attempts and acceptance evidence.
 - `sol-luna-spark-router` assigns ready work to suitable available models and validates the combined result.
 - `wasted-time` bounds expensive work with a stop contract, a canary, and an explicit scale/repair/stop decision.
 - `human-friendly-output` turns agent findings into concise, independently understandable engineering reports.
+- `circuit-breaker` keeps narrow implementation tasks from turning into prolonged diagnostic loops.
 
 The bundle needs Codex and Python 3.10+ (standard library only). It contains no MCP server, network client, or service credentials. Model access comes from the user's existing Codex setup. The planner records work; Codex launches and supervises it through available tools.
 

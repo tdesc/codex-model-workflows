@@ -1,0 +1,4 @@
+interface:
+  display_name: "Circuit Breaker"
+  short_description: "Stop narrow work before it turns into a loop"
+  default_prompt: "Use $circuit-breaker to define the delivery point, test one hypothesis, and stop diagnostic loops when they stop producing evidence."
