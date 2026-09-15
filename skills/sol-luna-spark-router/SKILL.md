@@ -1,13 +1,13 @@
 ---
 name: sol-luna-spark-router
-description: "Plan and launch work across Sol, Luna, and Spark in standalone Codex, with local Codex TrackWave plans or a plain goal. Use for adaptive orchestration and bounded execution; no Colony services are needed."
+description: "Plan and launch work across Sol, Luna, and Spark in standalone Codex, with local Codex TrackWave plans or a plain goal. Use for adaptive orchestration and bounded execution; no external services are needed."
 ---
 
 # Sol Luna Spark Router
 
 Turn a goal into verifiable work, using Sol for difficult judgments, Luna for well-specified work, and Spark for focused coding iterations when those routes are admitted. These are initial routing preferences, not a mandatory three-stage chain or a claim that a model will succeed. Optimize time to an accepted result, including dispatch, validation, and repair overhead.
 
-This standalone edition uses the current Codex tools, project instructions, and optional local `codex-trackwave` companion. It has no server, passport, quota-treasury, or Colony-policy dependency. If the project has its own policy, honor its actual scope without requiring that policy in other projects.
+This standalone edition uses the current Codex tools, project instructions, and optional local `codex-trackwave` companion. It has no server or project-specific policy dependency. If the project has its own policy, honor its actual scope without requiring that policy in other projects.
 
 ## Select the work mode
 

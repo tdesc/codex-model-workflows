@@ -1,6 +1,6 @@
 # Standalone TrackWave adapter
 
-Use the companion `codex-trackwave` skill for local JSON plans. Resolve its installed `SKILL.md` and read its command reference; use its bundled Python helper. No remote planner, project passport, MCP server, Docker service, or Colony policy is required.
+Use the companion `codex-trackwave` skill for local JSON plans. Resolve its installed `SKILL.md` and read its command reference; use its bundled Python helper. No remote planner, external service, or project-specific policy is required.
 
 ## Bind the plan
 

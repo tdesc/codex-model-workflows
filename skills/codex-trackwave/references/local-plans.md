@@ -44,6 +44,6 @@ The v1 helper intentionally keeps the spec and accepted history immutable. If ac
 
 ## Import an existing plan
 
-A raw v1 spec can be initialized. An existing v1 state file must be resumed, not passed to `init`. For Markdown, JSON from another planner, or a Colony TrackWave export, read it as input and derive a v1 spec while preserving source plan/wave/item IDs in titles or source references. Keep its acceptance criteria and unfinished dependencies. Set `predecessor` to the source reference. Explain any derived implementation mapping; do not invent absent mappings.
+A raw v1 spec can be initialized. An existing v1 state file must be resumed, not passed to `init`. For Markdown, JSON from another planner, or an external TrackWave export, read it as input and derive a v1 spec while preserving source plan/wave/item IDs in titles or source references. Keep its acceptance criteria and unfinished dependencies. Set `predecessor` to the source reference. Explain any derived implementation mapping; do not invent absent mappings.
 
-Imported completion/approval fields are reported historical context until verified for the current work. A local plan does not advance the remote original or inherit its authority. An external plan export is optional input; no passport, daemon, credentials, remote CLI, or Colony policy is required to use this helper.
+Imported completion/approval fields are reported historical context until verified for the current work. A local plan does not advance the remote original or inherit its authority. An external plan export is optional input; no remote planner, service, credentials, or project-specific policy is required to use this helper.

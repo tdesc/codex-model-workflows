@@ -59,11 +59,11 @@ local patch, a commit, a push, a PR, and a release are the same state.
 
 ## Keep process proportional
 
-Do not turn a static-site or CSS microfix into a Colony runtime audit,
-Collective call, release lane, or multi-agent task unless the request depends
-on that system or a required repository gate blocks delivery. Follow mandatory
-repository hooks and ownership rules once; a stale ownership claim is a
-packaging blocker to resolve, not a reason to restart discovery.
+Do not turn a static-site or CSS microfix into a project runtime audit,
+coordination call, release lane, or multi-agent task unless the request
+depends on that system or a required repository gate blocks delivery. Follow
+mandatory repository hooks and ownership rules once; a stale ownership claim is
+a packaging blocker to resolve, not a reason to restart discovery.
 
 For a PR, user authorization is still required for commit, push, and PR
 creation. After the PR URL is observed, stop unless the user asks for checks,

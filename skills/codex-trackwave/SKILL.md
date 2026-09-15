@@ -1,6 +1,6 @@
 ---
 name: codex-trackwave
-description: "Create, inspect, and resume local TrackWave plans in standalone Codex, with dependency-aware waves, attempt history, and evidence for accepted work. Use for durable multi-step planning with or without Sol Luna Spark Router; no Colony runtime is required."
+description: "Create, inspect, and resume local TrackWave plans in standalone Codex, with dependency-aware waves, attempt history, and evidence for accepted work. Use for durable multi-step planning with or without Sol Luna Spark Router; no external runtime is required."
 ---
 
 # Codex TrackWave
