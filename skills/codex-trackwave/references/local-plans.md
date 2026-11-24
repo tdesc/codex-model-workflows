@@ -18,15 +18,15 @@ python3 "$trackwave" status --plan task-plan.json
 Read the latest revision from `status` before each mutation. Use a stable unique event ID per logical update, and reuse the exact event on response-loss retries. Duplicate event IDs with different content fail. Examples below assume no interleaving updates; always use the observed revision.
 
 ```bash
-python3 "$trackwave" record --plan task-plan.json --revision 0 --event-id parser-reserve-1 --item parser --action reserve --model gpt-5.6-luna
-# Host now performs the authorized dispatch and observes the returned run ID.
-python3 "$trackwave" record --plan task-plan.json --revision 1 --event-id parser-bind-1 --item parser --action bind --run-id observed-run-id
+python3 "$trackwave" record --plan task-plan.json --revision 0 --event-id parser-reserve-1 --item parser --action reserve --model gpt-6.2-sol
+# For host execution, identify the current task or turn. For dispatch, observe the returned run ID.
+python3 "$trackwave" record --plan task-plan.json --revision 1 --event-id parser-bind-1 --item parser --action bind --run-id observed-task-or-run-id
 python3 "$trackwave" record --plan task-plan.json --revision 2 --event-id parser-return-1 --item parser --action return --evidence artifacts/parser.patch
 # Host inspects the result and checks the full contract.
 python3 "$trackwave" record --plan task-plan.json --revision 3 --event-id parser-accept-1 --item parser --action accept --evidence artifacts/parser-validation.json
 ```
 
-`reserve` admits only ready items and enforces `max_parallel` over reserved/running entries and `max_attempts` per item. The selected model is requested/configured metadata, not provider attestation. For host execution, use an identifiable current task/turn reference as the run ID; do not pretend a child was launched. `bind` requires the actual run ID. `return` requires an artifact/evidence reference. `accept` requires host validation evidence and an item in returned state. References can be paths, URLs, or task/turn IDs; existence and validity are the host's responsibility.
+`reserve` admits only ready items and enforces `max_parallel` over reserved/running entries and `max_attempts` per item. The selected model is requested/configured metadata, not provider attestation. For host execution, use an identifiable current task/turn reference as the run ID; do not pretend a child was launched. `bind` requires the actual run ID. `return` requires an artifact/evidence reference. `accept` requires host validation evidence and an item in returned state. For a causal repair, point to the ordinary-path check and its control when applicable. References can be paths, URLs, or task/turn IDs; existence and validity are the host's responsibility.
 
 ```bash
 python3 "$trackwave" record --plan task-plan.json --revision 4 --event-id parser-fail-1 --item parser --action fail --note "Describe the observed failure and run resolution" --run-resolved

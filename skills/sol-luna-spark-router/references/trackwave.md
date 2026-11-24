@@ -12,7 +12,7 @@ For a Markdown plan or an export from any other planner, derive a local spec usi
 
 ## Route and run
 
-Choose a dependency-ready item in the active wave. Check source freshness, route support, time remaining, and read/write hazards with other running lanes. Reserve the item before dispatch, recording the selected model. Send the complete worker packet with the plan/wave/item identity and accepted upstream outputs. Record the actual run ID through `bind`, then use the platform's wait/status tools to observe it.
+Choose a dependency-ready item in the active wave. Check source freshness, route support, time remaining, and read/write hazards with other running lanes. Reserve the item before work, recording the selected model. For host execution, bind a current-task or turn reference and proceed in the current session. For delegation, send the complete worker packet with the plan/wave/item identity and accepted upstream outputs. Bind the actual run ID and observe it through the platform's wait/status tools.
 
 The local lifecycle is:
 
@@ -20,7 +20,7 @@ The local lifecycle is:
 
 Reserve consumes an attempt and a worker slot. Returned results release the worker slot but remain unavailable to dependent work until acceptance. Only the host records transitions; workers must not edit plan state. Read the current revision for each update and reuse event IDs for response-loss retries.
 
-At the join, inspect actual artifacts, check the entire contract, and reconcile results under the host's authority. Record the output with `return` and validation evidence with `accept`. The helper derives the next wave from accepted items; no approval token or remote advance command is involved. Continue automatically within the existing authorized goal and envelope; ask only at a real unresolved decision or action boundary.
+At the join, inspect actual artifacts, check the entire contract, and reconcile results under the host's authority. Record the output with `return` and validation evidence with `accept`. For an HDE repair, preserve the normal-path result and control when applicable. The helper derives the next wave from accepted items; no approval token or remote advance command is involved. Continue automatically within the existing authorized goal and envelope; ask only at a real unresolved decision or action boundary.
 
 ## Resume and report
 
