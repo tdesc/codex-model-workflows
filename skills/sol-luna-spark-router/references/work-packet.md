@@ -16,6 +16,7 @@ Scope: allowed reads/writes/tools, forbidden effects, proposal-only or edit mode
 Route: selected model/effort/transport, admission evidence, fallback eligibility.
 Limits: remaining deadline/attempt/resource allowance and stopping condition.
 Validation: host acceptance command or rubric and who may execute it.
+For a causal probe: symptom, candidate mechanisms, predicted observations, and control.
 Return: artifact/patch or evidence refs, checks actually run, residuals/status.
 TrackWave (if present): project, plan, revision, wave and work-item mapping.
 ```
@@ -38,7 +39,7 @@ Review integration changes against the original acceptance criteria. A correct p
 
 Keep a compact record in the task or an authorized artifact location:
 
-`lane | dependencies | packet_revision | requested/configured_model | transport | child/run_id | attempt | status | artifact | validation | integration | elapsed | residual`
+`lane | dependencies | packet_revision | requested/configured/reported execution model | transport | child/run_id | attempt | status | artifact | validation | integration | elapsed | residual`
 
 Store start/end and per-attempt outcomes when available, including failure and repair. Use declared dependencies to identify what must be redone after input drift. Do not sum overlapping durations as wall time or cumulative usage snapshots as token consumption.
 

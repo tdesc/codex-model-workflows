@@ -1,4 +1,4 @@
 interface:
-  display_name: "Sol Luna Spark Router"
-  short_description: "Route standalone Codex work with local TrackWave plans"
-  default_prompt: "Use $sol-luna-spark-router to plan and execute this task in standalone Codex, reusing the supplied local TrackWave plan or creating one when useful."
+  display_name: "GPT-6.2 Sol Router"
+  short_description: "Run Codex work with GPT-6.2 Sol first"
+  default_prompt: "Use $sol-luna-spark-router to run or resume this work with GPT-6.2 Sol and verify the integrated result."

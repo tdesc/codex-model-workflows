@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hypothesis-Driven Closed Loop"
+  short_description: "Probe ambiguous failures and prove the consumer effect"
+  default_prompt: "Use $hypothesis-driven-closed-loop to predict a decisive probe, verify the ordinary consumer, and give the evidence for the verdict."

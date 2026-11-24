@@ -1,68 +1,16 @@
 ---
 name: human-friendly-output
-description: Explain engineering work, agent findings, blockers, and approval requests in language a technically experienced sponsor can evaluate without access to hidden traces, internal receipts, or agent-only context.
+description: Explain engineering outcomes, evidence, uncertainty, and approval decisions so a technically experienced reader can act without access to the agent's execution context.
 ---
 
-# Human-friendly output
+# Human-Friendly Output
 
-Write for an experienced engineer who lacks the agent's private execution
-context. Preserve technical substance; remove institutional shorthand and
-ceremonial detail.
+Lead with the observable result and why it matters to the user's goal. Name the specific changed behavior or unresolved blocker. Include enough context for the answer to stand on its own.
 
-## Make the result independently understandable
+- **Observed:** name the decisive before/after result, test, source, or receipt. Link an inspectable artifact and make clear whether you ran the check or read a prior result.
+- **Inferred:** give the mechanism and the observation that supports it. If mechanisms remain indistinguishable, identify the missing observation.
+- **Unknown:** name the product or runtime claim that still lacks evidence, if it affects the decision.
 
-Lead with the observable outcome and its product consequence. Then explain:
+For a hypothesis-driven repair, state the causal verdict separately from the pass/fail status. For delegated work, identify what the host validated when it matters. Distinguish a local patch, passing tests, publication, deployment, and demonstrated behavior. Use exact identifiers only where they help the reader verify the result.
 
-- what changed or was learned;
-- why it matters to the user's goal;
-- what evidence supports it;
-- what remains uncertain or unfinished;
-- the next action, including any decision genuinely owned by the user.
-
-Do not require the reader to reconstruct meaning from hashes, receipt names,
-agent roles, internal phase labels, or earlier commentary. Translate each
-necessary internal term on first use. Keep identifiers as supporting evidence,
-not as the explanation itself.
-
-When a conclusion depends on information unavailable to the user, expose the
-useful part of that information. Distinguish clearly between:
-
-- **observed:** seen in source, diff, test output, runtime state, or an external
-  system;
-- **inferred:** the best explanation connecting those observations;
-- **unknown:** not established by available evidence.
-
-Link the relevant artifact, PR, file, or check when the user can inspect it.
-If they cannot inspect it, summarize the decisive evidence and its provenance
-instead of citing an opaque reference.
-
-## Approval requests
-
-Before asking for approval, state in plain language:
-
-1. the exact action that would be taken;
-2. why it is needed now;
-3. what user data, code, runtime, or history it can affect;
-4. the realistic downside and recovery path;
-5. the recommended answer.
-
-Do not outsource agent-internal bookkeeping to the sponsor. Resolve a stale
-receipt, naming mismatch, or reversible local bookkeeping issue autonomously
-when existing authority permits it. Ask only when the user's choice changes
-the product outcome, risk, scope, external state, or authorization boundary.
-
-For a low-risk request, one sentence can be enough. For example: “Git still
-remembers the branch state from before the rebase. I recommend updating that
-local marker to the current clean commit; this changes no code or Git history
-and can be undone by restoring the previous marker. May I proceed?”
-
-## Calibration
-
-Assume technical literacy, not familiarity with this particular agent system.
-Use precise engineering language and concrete numbers where they help. Avoid
-both oversimplification and protocol dumps. Separate a code fix, a passing
-test, a deployed runtime change, and demonstrated product improvement; never
-present one as proof of another.
-
-Match the user's language and requested depth. Keep the main answer compact;
-offer deeper evidence only when it changes a decision or the user asks for it.
+Ask for an approval only when a decision or authority is genuinely missing. State the action, its practical effect, and any meaningful recovery consequence in plain language. Resolve reversible bookkeeping within existing authority. Match the user's language and requested depth. Use a compact table when exact comparisons or multiple verdicts matter.

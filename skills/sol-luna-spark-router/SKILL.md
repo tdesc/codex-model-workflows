@@ -1,47 +1,28 @@
 ---
 name: sol-luna-spark-router
-description: "Plan and launch work across Sol, Luna, and Spark in standalone Codex, with local Codex TrackWave plans or a plain goal. Use for adaptive orchestration and bounded execution; no external services are needed."
+description: Route Codex work with GPT-6.2 Sol as the default executor and integrator. Use for model choice, bounded delegation, or executing or resuming a Codex TrackWave plan. Luna and Spark are optional routes for narrowly specified tasks when supported.
 ---
 
-# Sol Luna Spark Router
+# GPT-6.2 Sol Router
 
-Turn a goal into verifiable work, using Sol for difficult judgments, Luna for well-specified work, and Spark for focused coding iterations when those routes are admitted. These are initial routing preferences, not a mandatory three-stage chain or a claim that a model will succeed. Optimize time to an accepted result, including dispatch, validation, and repair overhead.
+Start with GPT-6.2 Sol (`gpt-6.2-sol`) on the current task when the active surface supports it. The host owns the goal, acceptance criteria, coupled changes, and final verification. Keep those decisions and ordinary serial work together. Read [routing and model availability](references/routing.md) when resolving a route or launching work.
 
-This standalone edition uses the current Codex tools, project instructions, and optional local `codex-trackwave` companion. It has no server or project-specific policy dependency. If the project has its own policy, honor its actual scope without requiring that policy in other projects.
+## Choose what to run
 
-## Select the work mode
+- **Plan only:** inspect inputs and describe the goal, acceptance, dependencies, and limits. Create a local plan when requested. Plan-only work leaves execution state untouched.
+- **Execute or resume:** continue within the user's existing authorization. For a supplied TrackWave plan, use [the TrackWave adapter](references/trackwave.md) and preserve accepted evidence, unresolved runs, and remaining limits.
+- **Ambiguous failure:** use `hypothesis-driven-closed-loop` to identify the cheapest discriminating probe before editing. Use `circuit-breaker` for a localized defect with a known cause. Use `wasted-time` before a costly run whose deciding boundary is still uncertain.
 
-- **Plan only:** inspect inputs and produce assignments, dependencies, route choices, validation, and limits. Create a requested local plan artifact, but do not launch workers or advance its execution state.
-- **Execute or resume:** execute the work the user authorized, preserving existing acceptance criteria, completed work, and effect boundaries. A plan is not implementation authority. Writing or reviewing this skill does not itself request a live cascade.
-- **Existing TrackWave:** read [references/trackwave.md](references/trackwave.md). Resume a local plan or map the supplied external export without contacting its original service.
-- **No TrackWave:** keep a simple task in the current conversation. For multi-wave work or durable resume, use `codex-trackwave` to persist the goal, dependencies, acceptance, ownership, and attempts locally. If the companion is not installed, use the same compact fields in a local document or the task; report that automatic transition checks are unavailable.
+## Keep delegation conditional
 
-Resolve ambiguous scope from the supplied material first. Ask only for a choice or authority that actually changes execution. Announce the selected mode and topology before launching.
+Delegate only if intent, project policy, and the active surface allow it, there is a separable contract, and dispatch plus host verification is worthwhile. Prefer the smallest flat group of permitted workers. Keep tightly coupled work, shared write surfaces, and critical integration with one owner. Do not launch a worker merely to hand the only blocking step back to the host.
 
-## Plan around the critical path
+Use [the worker packet](references/work-packet.md) to hand off source, authority, evidence, acceptance, and remaining limits. A child does not inherit tools, context, or authority merely because it has a model label. Record the actual run ID and transport when dispatch succeeds.
 
-Inspect the relevant source and define acceptance before splitting work. Keep tightly coupled changes with one owner. Parallelize only independently useful lanes with non-overlapping effects and a clear join check; include read/write hazards, not just duplicate writes. Assign each expensive test surface one owner.
+If a task expressly requires GPT-6.2 Sol and the active route cannot provide it, preserve that constraint. Continue useful work that does not require that model. When Sol is a workflow preference and the current session is adequate, proceed with the available model and record its observed identity or uncertainty. Do not silently switch an explicitly requested model.
 
-The current host owns scope, architecture, admission, integration, and the final claim. Do not call it Sol unless its execution metadata supports that identity. If the requested model cannot handle the host's required step through a permitted surface, report the mismatch instead of silently relabeling another model.
+## Verify and recover
 
-For routing criteria, model IDs, supported dispatch surfaces, and failure handling, read [references/routing.md](references/routing.md) before dispatch. The normal shape is a flat host with bounded workers. Use Sol → Luna → Spark nesting only when a real intermediate decision or coordination job saves work and the platform and project policy admit it. The host can dispatch Spark directly from a Luna proposal; label that actual topology honestly.
+Review returned evidence and rerun the deciding check against integrated source. For causal repairs, verify the signal reaches the ordinary consumer and changes the expected behavior. A worker report, plan state, or model label alone does not establish that effect.
 
-## Admit and dispatch
-
-Before each launch, intersect user intent, project policy, platform availability, required capabilities, observed quota, and the remaining time/resource envelope. Explicit model preferences do not override a denied route. Do not edit governance or global model configuration to make a route pass.
-
-Use the selected platform's supported models/transports and applicable project instructions. When no project routing policy exists, choose a finite host-managed envelope and record route decisions directly. Unknown quota is unknown; it does not require installing a quota service. If a configured policy requires a specific observation or denies a route, resolve that constraint before dispatch. A local plan reservation only prevents overscheduling; it does not certify model access or grant external-action authority.
-
-Before sending work, read [references/work-packet.md](references/work-packet.md). Send a complete bounded assignment, not a reference to unspecified parent history. Children have no implicit authority to delegate further. Start only the ready lanes permitted by the envelope, while the host continues distinct useful work. Do not spawn a sidecar for the sole blocking action when the platform requires independent parallel work.
-
-The result of planning is a candidate route. The result of dispatch is an observed child/run ID. Neither is completed work. Keep requested and configured models separate from provider-attested identity, and record transport changes.
-
-## Validate, adapt, and close
-
-Validate returned artifacts against the assigned acceptance check and source snapshot before integrating. Proposal-only workers must not apply changes or execute commands; the authorized host performs those steps. Under a policy permitting worker edits, enforce the assigned ownership boundary. Recheck accepted worker output after host reconciliation.
-
-On failure, classify missing context, invalid output, semantic failure, transport/quota failure, or integration drift. Repair the failed slice, not the entire wave. Reroute only through fresh admission and within the remaining envelope; do not reinterpret a semantic retry as permission to switch providers. Keep the original failure and later repair as separate attempts.
-
-Use the platform's wait/cancellation mechanisms with bounded waits. A parent timeout is not proof the child stopped. Resolve existing run IDs before redispatching potentially mutating work. Stop new dispatch at the deadline or exhausted budget; preserve useful results and report any still-running work accurately.
-
-Finish with the outcome, actual topology, accepted versus rejected/unvalidated items, checks performed, elapsed wall time, and blockers. Include exact plan/wave bindings when present. Record measured usage only; do not promise savings from model labels or separate quota pools. For post-run comparison, use `agent-session-audit` when available, without requiring an audit ritual for every run.
+On failure, distinguish missing context, a semantic failure, a route failure, and source drift. Retry only when a changed packet, artifact, probe, or newly admitted route can address the specific blocker. Inspect an unresolved run before relaunching work with effects. Preserve validated independent work and report the route actually used, the acceptance observed, and the remaining gap.
